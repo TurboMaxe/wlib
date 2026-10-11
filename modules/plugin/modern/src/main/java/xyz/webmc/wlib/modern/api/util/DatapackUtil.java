@@ -64,7 +64,7 @@ public class DatapackUtil {
   public static void _shutdownPlugin(Plugin plugin) {
     checkInternalCaller();
 
-    dispatchConsole.accept("minecraft:datapack disable " + getPluginDatapackString(plugin));
+    dispatchConsole.accept("minecraft:datapack disable " + getPluginDatapackFileString(plugin));
   }
 
   public static void enableDatapack(String datapack) {
@@ -89,8 +89,12 @@ public class DatapackUtil {
     return "\"file/" + datapack + "\"";
   }
 
-  private static String getPluginDatapackString(Plugin plugin) {
-    return datapackString(plugin.getName() + ".zip");
+  private static String getPluginDatapackFile(Plugin plugin) {
+    return plugin.getName() + ".zip";
+  }
+
+  private static String getPluginDatapackFileString(Plugin plugin) {
+    return datapackString(getPluginDatapackFile(plugin));
   }
 
   private static void __initPlugin(Plugin plugin) {
@@ -102,7 +106,7 @@ public class DatapackUtil {
       }
     }
 
-    final String name = getPluginDatapackString(plugin);
+    final String name = getPluginDatapackFile(plugin);
     final Path out = datapackFolder.resolve(name).toAbsolutePath();
     final boolean exists = Files.exists(out);
 
@@ -112,7 +116,7 @@ public class DatapackUtil {
 
         if (!exists || HashUtil.hash64(pack) != HashUtil.hash64(Files.readAllBytes(out))) {
           if (exists) {
-            enableDatapack(name);
+            disableDatapack(name);
           }
 
           Files.write(out, pack);
@@ -120,7 +124,7 @@ public class DatapackUtil {
 
         enableDatapack(name);
       } else if (exists) {
-        enableDatapack(name);
+        disableDatapack(name);
         Files.delete(out);
       }
     } catch (Exception ex) {}
