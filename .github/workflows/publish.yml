@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN != '' }}
+      HAS_MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN != '' }}
 
     steps:
       - uses: actions/checkout@v6
@@ -90,13 +90,13 @@ jobs:
           if-no-files-found: error
 
       - id: mrinfo
-        if: ${{ env.MODRINTH_TOKEN == 'true' }}
+        if: ${{ env.HAS_MODRINTH_TOKEN == 'true' }}
         run: |
           echo "PROJECT_ID=$(curl -s "https://api.modrinth.com/v2/project/wlib" -H "Authorization: Bearer $MODRINTH_TOKEN" | jq -r '.id')" >> "$GITHUB_OUTPUT"
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
 
-      - if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && env.MODRINTH_TOKEN == 'true' }}
+      - if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && env.HAS_MODRINTH_TOKEN == 'true' }}
         uses: cloudnode-pro/modrinth-publish@v2
         with:
           token: ${{ secrets.MODRINTH_TOKEN }}
