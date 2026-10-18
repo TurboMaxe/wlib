@@ -22,8 +22,8 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
-@SuppressWarnings({ "deprecation" })
-public non-sealed class BlockRelative extends AbstractBlockBase {
+@SuppressWarnings({ "deprecation", "removal" })
+public class BlockRelative extends AbstractBlockBase {
   private final int x;
   private final int y;
   private final int z;

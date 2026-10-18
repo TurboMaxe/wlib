@@ -14,8 +14,8 @@
 package xyz.webmc.wlib.internal.compat.api.structure.block;
 
 import xyz.webmc.wlib.api.WLIB;
-import xyz.webmc.wlib.api.structure.block.AbstractBlockBase;
 import xyz.webmc.wlib.internal.compat.WCompat;
+import xyz.webmc.wlib.internal.structure.block.AbstractBlockBase;
 
 import com.cryptomorin.xseries.XMaterial;
 

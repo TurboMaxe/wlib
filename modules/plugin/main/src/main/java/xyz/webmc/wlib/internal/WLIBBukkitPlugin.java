@@ -39,7 +39,6 @@ import net.sandrohc.schematic4j.SchematicLoader;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.config.Configurator;
 
-@WPluginMeta(shutdownOnFailure = true, requireAgent = true, bStats = 33913)
 @PluginMeta(
   name = "${proj.name}",
   version = "${proj.vers}",
@@ -55,8 +54,9 @@ import org.apache.logging.log4j.core.config.Configurator;
   },
   foliaSupported = true
 )
+@WPluginMeta(shutdownOnFailure = true, requireAgent = true, bStats = 33913)
 public final class WLIBBukkitPlugin extends WPlugin {
-  private static final Set<Class<?>> DISABLE_LOGGERS = Set.of(SchematicLoader.class);
+  private static final Class<?>[] DISABLE_LOGGERS = { SchematicLoader.class };
 
   @Override
   protected void load() throws Exception {
@@ -124,6 +124,8 @@ public final class WLIBBukkitPlugin extends WPlugin {
 
   static {
     System.setProperty("java.awt.headless", "true");
-    DISABLE_LOGGERS.forEach(clazz -> Configurator.setLevel(clazz.getPackageName(), Level.OFF));
+    for (Class<?> clazz : DISABLE_LOGGERS) {
+      Configurator.setLevel(clazz.getPackageName(), Level.OFF);
+    }
   }
 }

@@ -5,7 +5,7 @@
       <pluginRepositories>
         <pluginRepository>
           <id>nms-core-ext</id>
-          <url>https://maven.colbster937.dev/colbster937/maven-nms-core-ext/</url>
+          <url>https://codeberg.org/api/packages/colbster937/maven/</url>
         </pluginRepository>
       </pluginRepositories>
     </profile>
@@ -16,6 +16,18 @@
       <id>github</id>
       <username>${env.GITHUB_ACTOR}</username>
       <password>${env.GITHUB_TOKEN}</password>
+      <repositoryOrigins>
+        <repositoryOrigin>https://maven.pkg.github.com</repositoryOrigin>
+      </repositoryOrigins>
+    </server>
+
+    <server>
+      <id>codeberg</id>
+      <username>${env.CODEBERG_USERNAME}</username>
+      <password>${env.CODEBERG_PASSWORD}</password>
+      <repositoryOrigins>
+        <repositoryOrigin>https://codeberg.org</repositoryOrigin>
+      </repositoryOrigins>
     </server>
   </servers>
 

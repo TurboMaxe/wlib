@@ -224,7 +224,7 @@
         <directory>${maven.multiModuleProjectDirectory}</directory>
         <targetPath>resources</targetPath>
         <includes>
-          <include>img/**</include>
+          <include>img/*</include>
         </includes>
       </resource>
     </resources>

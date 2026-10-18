@@ -11,7 +11,7 @@
  * See the LICENSE file for details.
  */
 
-package xyz.webmc.wlib.api.structure.block;
+package xyz.webmc.wlib.internal.structure.block;
 
 import xyz.webmc.wlib.internal.compat.api.structure.block.AbstractBlockBaseCompat;
 
@@ -19,7 +19,7 @@ import com.cryptomorin.xseries.XMaterial;
 import org.bukkit.Location;
 import org.bukkit.Material;
 
-public abstract sealed class AbstractBlockBase extends AbstractBlockBaseCompat permits BlockRelative {
+public abstract class AbstractBlockBase extends AbstractBlockBaseCompat {
   protected final XMaterial mat;
   protected final String dataModern;
   protected final byte dataLegacy;
