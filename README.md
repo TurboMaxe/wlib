@@ -9,12 +9,16 @@
     <img src=".github/readme/badges/license.svg">
   </a>
 
+  <br>
+
   <a href="https://www.java.com/">
     <img src="https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/built-with/java17_vector.svg">
   </a>
   <a href="https://maven.apache.org/">
     <img src="https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/built-with/maven_vector.svg">
   </a>
+
+  <br>
 
   <a href="https://github.com/WebMCDevelopment/wlib">
     <img src="https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/available/github_vector.svg">
@@ -25,6 +29,8 @@
   <a href="https://hangar.papermc.io/WebMC/wlib/">
     <img src="https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/available/hangar_vector.svg">
   </a>
+
+  <br>
 
   <a>
     <img src="https://raw.githubusercontent.com/intergrav/devins-badges/v3/assets/cozy/supported/bukkit_vector.svg">
