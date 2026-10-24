@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wlib-devkit" />
+        <module name="wlib-launcher" />
+        <module name="wlib-common" />
+        <module name="wlib-modern" />
+        <module name="wlib-agent" />
+      </profile>
+      <profile name="Annotation profile for parent" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <option name="devkit.propertiesFile" value="C:\Users\Hassan Ali\Desktop\eaglercraf client maker\wlib-fork\wlib\modules\plugin\main\target/devkit.properties" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/modules/misc/devkit/target/classes" />
+          <entry name="$PROJECT_DIR$/modules/misc/devkit/target/classes" />
+        </processorPath>
+        <module name="wlib-plugin" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="wlib-plugin" options="&quot;-Adevkit.propertiesFile=C:\Users\Hassan Ali\Desktop\eaglercraf client maker\wlib-fork\wlib\modules\plugin\main\target/devkit.properties&quot;" />
+    </option>
+  </component>
+</project>

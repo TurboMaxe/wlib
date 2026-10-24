@@ -14,8 +14,10 @@
 package xyz.webmc.wlib.api.misc.iface;
 
 import org.bukkit.event.Event;
-import org.bukkit.event.EventException;
 
+@FunctionalInterface
 public interface EventRunnable<T extends Event> {
-  void run(T ev) throws EventException;
+
+  void run(T event);
+
 }

@@ -13,6 +13,34 @@
 
 package xyz.webmc.wlib.internal.misc;
 
+import com.avaje.ebean.validation.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.bukkit.entity.Player;
+
 import java.util.UUID;
 
-public record WPlayer(UUID uuid, String name, String host) {}
+@Getter
+public final class WPlayer {
+    private final @NotNull UUID uuid;
+    private final @NotNull String name;
+    private final @NotNull String host;
+
+    private WPlayer(UUID uuid, String name, String host) {
+        this.uuid = uuid;
+        this.name = name;
+        this.host = host;
+    }
+
+    public static WPlayer createPlayer(UUID uuid, String name, String host) {
+         return new WPlayer(uuid, name, host);
+    }
+
+    public static WPlayer createPlayer(Player player) {
+        return new WPlayer(
+                player.getUniqueId(),
+                player.getName(),
+                player.getAddress().getHostName()
+        );
+    }
+}

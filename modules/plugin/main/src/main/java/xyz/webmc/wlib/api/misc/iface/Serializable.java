@@ -13,6 +13,9 @@
 
 package xyz.webmc.wlib.api.misc.iface;
 
-public interface Serializable {
+public interface Serializable<T> {
+
   String serialize();
+
+  T deserialize(String data);
 }

@@ -149,14 +149,9 @@ public abstract class WPlugin extends JavaPlugin implements IWPlugin {
     return this.metrics;
   }
 
-  protected void load() throws Throwable {}
-  protected void loadModern() throws Throwable {}
-  protected void enable() throws Throwable {}
-  protected void enableModern() throws Throwable {}
-  protected void disable() throws Throwable {}
-  protected void disableModern() throws Throwable {}
-  protected void agentReady() throws Throwable {}
-  protected void serverStartup() throws Throwable {}
+  protected void agentReady() {}
+
+  protected void serverStartup() {}
 
   private void onServerStartup() {
     try {
@@ -168,7 +163,7 @@ public abstract class WPlugin extends JavaPlugin implements IWPlugin {
 
   private void handleThrowable(String stage, Throwable t, boolean shutdown) {
     shutdown = shutdown && this.meta.shutdownOnFailure();
-    String message = "";
+    String message = null;
 
     if (shutdown) {
       message = ", shutting down server..";

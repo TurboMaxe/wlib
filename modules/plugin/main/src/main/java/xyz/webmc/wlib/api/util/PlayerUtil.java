@@ -27,8 +27,8 @@ public final class PlayerUtil {
   private static final Map<UUID, WPlayer> PLAYERS = new HashMap<>();
 
   public static void _onPlayerLogin(UUID uuid, String name, String host) {
-    final WPlayer player = PLAYERS.computeIfAbsent(uuid, k -> new WPlayer(k, name, host));
-    LoggerUtil.debug(player.name() + " joined via hostname " + player.host());
+    final WPlayer player = PLAYERS.computeIfAbsent(uuid, k -> WPlayer.createPlayer(uuid, name, host));
+    LoggerUtil.debug(player.getName() + " joined via hostname " + player.getHost());
   }
 
   public static void _onPlayerQuit(Player player) {
@@ -38,7 +38,7 @@ public final class PlayerUtil {
   public static String getPlayerVirtualHost(UUID uuid) {
     final WPlayer player = PLAYERS.get(uuid);
     if (player != null) {
-      final String host = player.host();
+      final String host = player.getHost();
       if (host != null && !host.isBlank()) {
         return host;
       }
